@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
+.super{
+  background:linear-gradient(to top left,#159957,#155799);
+  background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+ 
+}
+.super-text{
+  color:linear-gradient(to top left,#159957,#155799);
+}
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
+
+    /* CSS: .bg-gradient { background: var(--gradient) } */
+    --gradient: linear-gradient(to top left,#360033,#0b8793);
+    --background: 0 95% 98%;
+    --foreground: 0 0% 0%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --popover: 0 90% 90%;
+    --popover-foreground: 0 0% 0%;
+
+    --card: 0 90% 90%;
+    --card-foreground: 0 0% 0%;
+
+    --border: 0 5% 89%;
+    --input: 0 5% 89%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 90%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 1% 10%;
+
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 1% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
