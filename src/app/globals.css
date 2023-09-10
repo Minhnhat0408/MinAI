@@ -18,6 +18,9 @@ color: transparent;
 .super-text{
   color:linear-gradient(to top left,#159957,#155799);
 }
+.cl-internal-b3fm6y{
+  visibility:hidden ;
+}
 @layer base {
   :root {
     /* Name: custom color palette
