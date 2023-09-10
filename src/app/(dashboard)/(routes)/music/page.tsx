@@ -1,9 +1,9 @@
 function MusicPage() {
-    return ( 
+    return (
         <div>
-
+            Music
         </div>
-     );
+    );
 }
 
 export default MusicPage;   

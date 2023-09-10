@@ -1,7 +1,7 @@
 function ImagePage() {
     return ( 
         <div>
-            
+            Image 
         </div>
      );
 }

@@ -1,9 +1,9 @@
-function Conversation() {
+function ConversationPage() {
     return ( 
         <div>
-            
+            ConversationPage
         </div>
      );
 }
 
-export default Conversation;
+export default ConversationPage;
