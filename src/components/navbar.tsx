@@ -3,7 +3,7 @@ import MobileSidebar from "./SideBar/mobile-sidebar";
 
 function NavBar() {
     return (
-        <div className="flex items-center p-4 pl-10 pt-10">
+        <header className="flex items-center p-4 pl-10 pt-10">
             <div className="flex w-full ">
                 <UserButton appearance={{
                     elements:{
@@ -18,7 +18,7 @@ function NavBar() {
                 }} afterSignOutUrl="/" />
             </div>          
             <MobileSidebar />
-        </div>
+        </header>
     );
 }
 
