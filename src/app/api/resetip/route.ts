@@ -12,6 +12,7 @@ export async function POST(req:Request) {
                 headers: {
                     'Authorization': `Bearer ${apiKey}`
                 },
+                body: JSON.stringify(body),
             }   
         );
         const result = await response.json(); 
