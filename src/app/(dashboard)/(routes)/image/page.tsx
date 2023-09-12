@@ -1,9 +1,8 @@
 "use client"
 import Heading from "@/components/heading";
-import { Download, ImageIcon, MessageSquare } from "lucide-react";
+import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod"
-import axios from "axios";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
