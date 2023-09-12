@@ -10,7 +10,6 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-// import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
@@ -33,45 +32,48 @@ function ConversationPage() {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         // console.log(values);
 
-        // async function query(data : {'inputs':string}) {
-        //     const response = await fetch(
-        //         "https://api-inference.huggingface.co/models/SG161222/Realistic_Vision_V1.4",
-        //         {
-        //             headers: { Authorization: "Bearer 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" },
-        //             method: "POST",
-        //             body: JSON.stringify(data),
-        //         }
-        //     );
-        //     const result = await response.blob();
-        //     return result;
-        // }
+
         try {
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             })
+            // const apiKey = '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'
+            // const responsed = await fetch(
+            //     "https://api-inference.huggingface.co/models/google/flan-t5-xxl",
+            //     {
+            //         headers: { Authorization: `Bearer ${apiKey}` },
+            //         method: "POST",
+            //         body: JSON.stringify({ "inputs": 'what is the capital of Vietnam' }),
+            //     }
+            // );
+
+            // const result = responsed.json();
+            // console.log(result)
+
             const userMessage: Message = {
-                role: "user",
-                content: values.prompt,
+               role:'user',
+               content: values.prompt,
             }
             const newMessages = [...messages, userMessage]
             setMessages(newMessages)
             // console.log(newMessages)
             const response = await axios.post("/api/conversation", {
-                messages: newMessages,
+                messages: values.prompt,
             })
-        
-            const resMsg: Message = response.data.choices[0].message
-            let endIndex = resMsg.content.indexOf("END");
-            let noteIndex = resMsg.content.indexOf("(Note");
+            console.log(response.data)
 
-            if (endIndex !== -1) {
-                resMsg.content = resMsg.content.substring(0, endIndex).trim();
-            }
-            if (noteIndex !== -1 && noteIndex < endIndex) {
-                resMsg.content = resMsg.content.substring(0, noteIndex).trim();
-            }
-            setMessages((current: Message[]) => [...current, response.data.choices[0].message])
+            // const resMsg: Message = response.data.generated[0].message
+            // let endIndex = resMsg.content.indexOf("END");
+            // let noteIndex = resMsg.content.indexOf("(Note");
+
+            // if (endIndex !== -1) {
+            //     resMsg.content = resMsg.content.substring(0, endIndex).trim();
+            // }
+            // if (noteIndex !== -1 && noteIndex < endIndex) {
+            //     resMsg.content = resMsg.content.substring(0, noteIndex).trim();
+            // }
+            setMessages((current: Message[]) => [...current, {role:'bot',content:response.data[0].generated_text}])
             form.reset()
         } catch (error) {
             console.log(error)
@@ -115,7 +117,7 @@ function ConversationPage() {
                     <Loader />
                 </div>
             )}
-           
+
             {messages.length === 0 && !isLoading && (
                 <Empty label="No conversation started." />
             )}

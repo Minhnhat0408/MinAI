@@ -14,13 +14,7 @@ function DashBoardLayout(
                 <div className="hidden h-full  md:flex md:right-0 md:flex-col md:fixed md:inset-y-0 z-[80]  md:w-72 md:bg-card">
                   <Sidebar/>
                 </div>
-            </aside>
-            <svg width="0" height="0">
-              <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                <stop stopColor="#159957" offset="0%" />
-                <stop stopColor="#155799" offset="100%" />
-              </linearGradient>
-            </svg>   
+            </aside>  
         </div>
 
     );

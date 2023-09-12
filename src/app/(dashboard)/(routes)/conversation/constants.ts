@@ -6,6 +6,6 @@ export const formSchema = z.object({
     })
 })
 export type Message = {
-    role:string,
-    content:string
+    role:"user"|"bot",
+    content: string,
 }

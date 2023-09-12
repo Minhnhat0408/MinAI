@@ -6,7 +6,7 @@ import React from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'MinAI',
+  title: 'MinAI - AI compilation platform',
   description: 'AI compilation platform',
 }
 
@@ -18,7 +18,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>{children}
+        <svg width="0" height="0">
+                <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                    <stop stopColor="#159957" offset="0%" />
+                    <stop stopColor="#155799" offset="100%" />
+                </linearGradient>
+            </svg></body>
       </html>
     </ClerkProvider>
   )
