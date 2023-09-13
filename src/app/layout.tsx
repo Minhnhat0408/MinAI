@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'MinAI - AI compilation platform',
-  description: 'AI compilation platform',
+  description: 'Dashboard for MinAI',
 }
 
 export default function RootLayout({

@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-    title: 'Introduction to MinAI',
-    description: 'AI compilation platform',
+    title: 'MinAI - AI compilation platform',
+    description: 'Introduction to MinAI',
   }
 
   
