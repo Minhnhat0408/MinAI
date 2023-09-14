@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'MinAI - AI compilation platform',
+  openGraph:{
+    images: ['./favicon.ico'],
+  },
   description: 'Dashboard for MinAI',
 }
 
