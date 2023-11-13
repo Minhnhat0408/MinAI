@@ -32,7 +32,7 @@ function ImageGenPage() {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             setPhotos('');
-            const apikey = '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'
+            const apikey = process.env.NEXT_PUBLIC_HUGGINGFACE_API_KEY;
 
             const response = await fetch(
                 "https://api-inference.huggingface.co/models/SG161222/Realistic_Vision_V1.4",
@@ -45,7 +45,6 @@ function ImageGenPage() {
             const result = await response.blob();
      
             setPhotos(URL.createObjectURL(result));
-            console.log(photos)
             form.reset()
         } catch (error) {
             console.log(error)

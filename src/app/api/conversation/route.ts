@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-const apiKey = process.env.HUGGINGFACE_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_HUGGINGFACE_API_KEY;
 
 export async function POST(req:Request) {
     try{

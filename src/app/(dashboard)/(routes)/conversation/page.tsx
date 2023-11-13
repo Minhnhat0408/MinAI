@@ -38,18 +38,7 @@ function ConversationPage() {
                 top: 0,
                 behavior: "smooth",
             })
-            // const apiKey = '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'
-            // const responsed = await fetch(
-            //     "https://api-inference.huggingface.co/models/google/flan-t5-xxl",
-            //     {
-            //         headers: { Authorization: `Bearer ${apiKey}` },
-            //         method: "POST",
-            //         body: JSON.stringify({ "inputs": 'what is the capital of Vietnam' }),
-            //     }
-            // );
-
-            // const result = responsed.json();
-            // console.log(result)
+        
 
             const userMessage: Message = {
                role:'user',
@@ -61,18 +50,7 @@ function ConversationPage() {
             const response = await axios.post("/api/conversation", {
                 messages: values.prompt,
             })
-            console.log(response.data)
 
-            // const resMsg: Message = response.data.generated[0].message
-            // let endIndex = resMsg.content.indexOf("END");
-            // let noteIndex = resMsg.content.indexOf("(Note");
-
-            // if (endIndex !== -1) {
-            //     resMsg.content = resMsg.content.substring(0, endIndex).trim();
-            // }
-            // if (noteIndex !== -1 && noteIndex < endIndex) {
-            //     resMsg.content = resMsg.content.substring(0, noteIndex).trim();
-            // }
             setMessages((current: Message[]) => [...current, {role:'bot',content:response.data[0].generated_text}])
             form.reset()
         } catch (error) {
@@ -123,9 +101,9 @@ function ConversationPage() {
             )}
             <div className="space-y-4    mt-4 px-4 lg:px-8">
                 <div className="flex flex-col-reverse gap-y-4">
-                    {messages.map((message: Message) => (
+                    {messages.map((message: Message,id:number) => (
                         <div
-                            key={message.content}
+                            key={id}
                             className={cn(
                                 "p-8 w-full flex items-start gap-x-8 rounded-lg",
                                 message.role === "user" ? "bg-white border border-black/10" : "bg-card",

@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { Empty } from "@/components/empty";
 
 const Error = () => {
